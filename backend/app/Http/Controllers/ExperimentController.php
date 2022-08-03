@@ -21,6 +21,11 @@ class ExperimentController extends Controller
     }
 
     public function postTestResult(Request $request,$uid,$pid){
+        
+        $request->validate([
+            'answer' => 'required|integer',
+        ]);
+
         DB::table('results')->insert([
             'exp_id' => $request->get('eid'),
             'problem_id' => $pid-1,

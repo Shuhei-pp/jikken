@@ -146,6 +146,9 @@
 </style>
 
 <div class="Form">
+    @if (!empty($errors->all()))
+        <span style="color:red">名前と学年は必須です！学年は半角数字で入力してください</span>
+    @endif
     <form  action="{{ route('user.regist')}}" method="POST">
     @csrf
         <div class="Form-Item">
@@ -157,9 +160,6 @@
         <div class="Form-Item">
             <p class="Form-Item-Label">
                 学年
-                @if (!empty($error))
-                    <span style="color:red">{{$error}}</span>
-                @endif
             </p>
             <input type="text" name="grade" class="Form-Item-Input" placeholder="">
         </div>

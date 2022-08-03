@@ -17,6 +17,10 @@ class practiceController extends Controller
 
     public function postPractice(Request $request,$uid,$pid){
 
+        $request->validate([
+            'answer' => '|required|integer',
+        ]);
+
         $eid = $request->get('eid');
 
         switch($pid){

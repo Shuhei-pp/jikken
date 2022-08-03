@@ -146,6 +146,9 @@
 </style>
 
 <div class="Form">
+    @if (!empty($errors->all()))
+        <span style="color:red">回答は半角数字で入力してください</span>
+    @endif
     @if($pid == 30)
         <form  action="{{ route('experiment.end',['uid' => $uid]) }}" method="POST" name="Form">
     @else

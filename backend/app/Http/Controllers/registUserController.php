@@ -14,10 +14,10 @@ class registUserController extends Controller
 
 
     public function registUser(Request $request){
-        // if(0<($request->get("grade")) || $request->get("grade")<100 ){
-        //     $error = "学年は半角数字で入力してください";
-        //     return view('registUser',compact("error"));
-        // }
+        $request->validate([
+            'name' => 'required',
+            'grade' => 'required|integer',
+        ]);
 
         $id = DB::table('users')->insertGetID([
             'name' => $request->get('name'),
