@@ -24,6 +24,6 @@ class registUserController extends Controller
             'grade' => $request->get('grade')
         ]);
         $name = $request->get('name');
-        return view('experiment.start',compact("name","id"));
+        return view('practice.start',compact("name","id"));
     }
 }
